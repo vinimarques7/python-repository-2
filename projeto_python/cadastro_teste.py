@@ -4,10 +4,11 @@ sobremesa = []
 
 # Menu de cadastro de receitas 
 def cadastro_receitas():
+    # Variáveis globais para serem utilzadas em outras funções
     global entrada, principal, sobremesa
     
     while True:
-        print("Cadastro de Receitas")
+        print("\nCADASTRO DE RECEITAS:")
         selecao = int(input('''
         1 - Prato de Entrada
         2 - Prato Principal
@@ -18,6 +19,7 @@ def cadastro_receitas():
         
         Selecione: '''))
 
+        # Contagem das listas dos pratos para a quantidade
         if selecao == 4:
             print("Quantidade de receitas cadastradas:")
             print(f"Entrada: {len(entrada)} receitas")
@@ -35,10 +37,11 @@ def cadastro_receitas():
             print()
 
         elif selecao == 6:
-            print("Selecione no próximo menu:")
+            print("\nSelecione no próximo menu:")
             # Def chamada para retornar ao menu principal depois de selecionar a opção 3 do submenu
             submenu_principal() 
 
+        # Cadastro do prato
         elif selecao == 1 or selecao == 2 or selecao == 3:
             nome = input("\nInforme o nome do prato: ")
             pais = input("Informe o país de origem do prato: ")
@@ -67,6 +70,7 @@ def cadastro_receitas():
         else:
             print("Opção inválida!")
 
+#  Função para o submenu de exclusão
 def submenu_excluir(receitas):
     nome_prato = input("Informe o nome do prato que deseja excluir: ")
     for index, receita in enumerate(receitas):
@@ -76,6 +80,7 @@ def submenu_excluir(receitas):
             return
     print(f"Prato {nome_prato} não encontrado.")
 
+#  Função para o submenu de atualização
 def submenu_atualizar(receitas):
     nome_prato = input("Informe o nome do prato que deseja atualizar: ")
     for receita in receitas:
@@ -86,6 +91,7 @@ def submenu_atualizar(receitas):
             print(f"Prato {nome_prato} atualizado com sucesso!")
             return
     print(f"Prato {nome_prato} não encontrado.")
+
 
 def submenu_principal():
     global entrada, principal, sobremesa
@@ -99,7 +105,7 @@ def submenu_principal():
         # 4 - Modo de preparo
         # 5 - Voltar
         submenu = int(input('''
-        1 - Excluir receitaS
+        1 - Excluir receita
         2 - Atualizar receita
         3 - Voltar para o menu anterior
         4 - Finalizar o programa
@@ -142,12 +148,11 @@ def submenu_principal():
             return
 
         elif submenu == 4:
-            print("Tenha um bom dia!")
+            print("\nTenha um bom dia!")
             exit()
 
         else:
-            print("Opção inválida!")
+            print("\nOpção inválida!")
 
 
 cadastro_receitas()
-
